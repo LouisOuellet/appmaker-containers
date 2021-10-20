@@ -1,0 +1,154 @@
+{
+    "containers": {
+        "id": {
+            "order": 1,
+            "type": "int(11)"
+        },
+        "1": "id",
+        "created": {
+            "order": 2,
+            "type": "datetime"
+        },
+        "2": "created",
+        "modified": {
+            "order": 3,
+            "type": "datetime"
+        },
+        "3": "modified",
+        "owner": {
+            "order": 4,
+            "type": "varchar(255)"
+        },
+        "4": "owner",
+        "updated_by": {
+            "order": 5,
+            "type": "varchar(255)"
+        },
+        "5": "updated_by",
+        "shipper": {
+            "order": 6,
+            "type": "varchar(255)"
+        },
+        "6": "shipper",
+        "load_num": {
+            "order": 7,
+            "type": "varchar(255)"
+        },
+        "7": "load_num",
+        "container_num": {
+            "order": 8,
+            "type": "varchar(255)"
+        },
+        "8": "container_num",
+        "container_size": {
+            "order": 9,
+            "type": "varchar(255)"
+        },
+        "9": "container_size",
+        "client": {
+            "order": 10,
+            "type": "varchar(255)"
+        },
+        "10": "client",
+        "branch_num": {
+            "order": 11,
+            "type": "varchar(255)"
+        },
+        "11": "branch_num",
+        "location": {
+            "order": 12,
+            "type": "varchar(255)"
+        },
+        "12": "location",
+        "status": {
+            "order": 13,
+            "type": "int(11)"
+        },
+        "13": "status",
+        "pick_up_num": {
+            "order": 14,
+            "type": "varchar(255)"
+        },
+        "14": "pick_up_num",
+        "bill_of_lading": {
+            "order": 15,
+            "type": "varchar(255)"
+        },
+        "15": "bill_of_lading",
+        "vessel": {
+            "order": 16,
+            "type": "varchar(255)"
+        },
+        "16": "vessel",
+        "carrier": {
+            "order": 17,
+            "type": "varchar(255)"
+        },
+        "17": "carrier",
+        "port": {
+            "order": 18,
+            "type": "varchar(255)"
+        },
+        "18": "port",
+        "sub_location": {
+            "order": 19,
+            "type": "varchar(255)"
+        },
+        "19": "sub_location",
+        "ETD": {
+            "order": 20,
+            "type": "date"
+        },
+        "20": "ETD",
+        "ETA_port": {
+            "order": 21,
+            "type": "date"
+        },
+        "21": "ETA_port",
+        "custom_clearance": {
+            "order": 22,
+            "type": "date"
+        },
+        "22": "custom_clearance",
+        "storage_date": {
+            "order": 23,
+            "type": "date"
+        },
+        "23": "storage_date",
+        "last_free_day": {
+            "order": 24,
+            "type": "date"
+        },
+        "24": "last_free_day",
+        "delivery_appointment": {
+            "order": 25,
+            "type": "datetime"
+        },
+        "25": "delivery_appointment",
+        "detention_date": {
+            "order": 26,
+            "type": "date"
+        },
+        "26": "detention_date",
+        "returned": {
+            "order": 27,
+            "type": "varchar(255)"
+        },
+        "27": "returned",
+        "charge_to_shipper": {
+            "order": 28,
+            "type": "varchar(255)"
+        },
+        "28": "charge_to_shipper",
+        "charge_to_other": {
+            "order": 29,
+            "type": "varchar(255)"
+        },
+        "29": "charge_to_other",
+        "active": {
+            "order": 30,
+            "type": "varchar(255)"
+        },
+        "30": "active"
+    }
+}
