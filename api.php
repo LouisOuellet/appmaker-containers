@@ -356,7 +356,7 @@ class containersAPI extends CRUDAPI {
 					"request" => $request,
 					"data" => $data,
 					"output" => [
-						'results' => $this->convertToDOM($container),
+						'dom' => $this->convertToDOM($container),
 						'raw' => $container,
 						'relationships' => $relationships,
 						'subscriptions' => $subscriptions,
@@ -371,7 +371,7 @@ class containersAPI extends CRUDAPI {
 					"request" => $request,
 					"data" => $data,
 					"output" => [
-						'results' => $result,
+						'dom' => $result,
 					],
 				];
 			}
@@ -873,7 +873,7 @@ class containersAPI extends CRUDAPI {
 								"request" => $request,
 								"data" => $data,
 								"output" => [
-									'results' => $this->convertToDOM($container),
+									'dom' => $this->convertToDOM($container),
 									'raw' => $container,
 									'relationships' => $relationships,
 									'messages' => $messages,
@@ -976,7 +976,7 @@ class containersAPI extends CRUDAPI {
 									"request" => $request,
 									"data" => $data,
 									"output" => [
-										'results' => $this->convertToDOM($container),
+										'dom' => $this->convertToDOM($container),
 										'raw' => $container,
 										'relationships' => $relationships,
 										'messages' => $messages,
