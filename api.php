@@ -55,31 +55,20 @@ class containersAPI extends CRUDAPI {
 			$container = $this->Auth->read('containers',$data['id']);
 			if($container != null){
 				$container = $container->all()[0];
-				$relationship = $this->Auth->create('relationships',[
+				$relationship = $this->createRelationship([
 					'relationship_1' => 'containers',
 					'link_to_1' => $container['id'],
 					'relationship_2' => 'users',
 					'link_to_2' => $this->Auth->User['id'],
 				]);
-				$relationship = $this->Auth->read('relationships',$relationship);
-				if($relationship != null){
-					$relationship = $relationship->All()[0];
-					// Return
-					$results = [
-						"success" => $this->Language->Field["Record successfully subscribed"],
-						"request" => $request,
-						"data" => $data,
-						"output" => [
-							"relationship" => $relationship,
-						],
-					];
-				} else {
-					$results = [
-						"error" => $this->Language->Field["Unable to complete the request"],
-						"request" => $request,
-						"data" => $data,
-					];
-				}
+				$results = [
+					"success" => $this->Language->Field["Record successfully subscribed"],
+					"request" => $request,
+					"data" => $data,
+					"output" => [
+						"relationship" => $relationship,
+					],
+				];
 			} else {
 				$results = [
 					"error" => $this->Language->Field["Unable to complete the request"],
@@ -230,14 +219,14 @@ class containersAPI extends CRUDAPI {
 				foreach($this->Auth->read('statuses',$data['status'],'order')->all() as $statuses){
 					if($statuses['type'] == "containers"){ $status = $statuses; }
 				}
-				$this->Auth->create('relationships',[
+				$this->createRelationship([
 					'relationship_1' => 'containers',
 					'link_to_1' => $container['id'],
 					'relationship_2' => 'statuses',
 					'link_to_2' => $status['id'],
 				]);
 				// Create Client
-				$this->Auth->create('relationships',[
+				$this->createRelationship([
 					'relationship_1' => 'containers',
 					'link_to_1' => $container['id'],
 					'relationship_2' => 'clients',
@@ -253,7 +242,7 @@ class containersAPI extends CRUDAPI {
 								switch($subscription['relationship']){
 									case"contacts":
 										if(isset($contacts[$subscription['link_to']])){
-											$this->Auth->create('relationships',[
+											$this->createRelationship([
 												'relationship_1' => 'containers',
 												'link_to_1' => $container['id'],
 												'relationship_2' => $subscription['relationship'],
@@ -263,7 +252,7 @@ class containersAPI extends CRUDAPI {
 										break;
 									case"users":
 										if(isset($users[$subscription['link_to']])){
-											$this->Auth->create('relationships',[
+											$this->createRelationship([
 												'relationship_1' => 'containers',
 												'link_to_1' => $container['id'],
 												'relationship_2' => $subscription['relationship'],
@@ -272,7 +261,7 @@ class containersAPI extends CRUDAPI {
 										}
 										break;
 									default:
-										$this->Auth->create('relationships',[
+										$this->createRelationship([
 											'relationship_1' => 'containers',
 											'link_to_1' => $container['id'],
 											'relationship_2' => $subscription['relationship'],
@@ -502,14 +491,13 @@ class containersAPI extends CRUDAPI {
 			$comment = $this->Auth->create('comments',$data);
 			$comment = $this->Auth->read('comments',$comment)->all()[0];
 			// Create Relationship
-			$relationship = $this->Auth->create('relationships',[
+			$this->createRelationship([
 				'relationship_1' => 'containers',
 				'link_to_1' => $container['id'],
 				'relationship_2' => 'comments',
 				'link_to_2' => $comment['id'],
 			]);
-			$relationship = $this->Auth->read('relationships',$relationship)->all()[0];
-			$relationship = $this->Auth->create('relationships',[
+			$this->createRelationship([
 				'relationship_1' => 'clients',
 				'link_to_1' => $client['id'],
 				'relationship_2' => 'comments',
@@ -627,7 +615,7 @@ class containersAPI extends CRUDAPI {
 				foreach($this->Auth->read('statuses',$container['status'],'order')->all() as $statuses){
 					if($statuses['type'] == "containers"){ $status = $statuses; }
 				}
-				$relationship = $this->Auth->create('relationships',[
+				$this->createRelationship([
 					'relationship_1' => 'containers',
 					'link_to_1' => $container['id'],
 					'relationship_2' => 'statuses',
@@ -684,14 +672,13 @@ class containersAPI extends CRUDAPI {
 				$note = $this->Auth->create('notes',$data);
 				$note = $this->Auth->read('notes',$note)->all()[0];
 				// Create Relationship
-				$relationship = $this->Auth->create('relationships',[
+				$this->createRelationship([
 					'relationship_1' => 'containers',
 					'link_to_1' => $container['id'],
 					'relationship_2' => 'notes',
 					'link_to_2' => $note['id'],
 				]);
-				$relationship = $this->Auth->read('relationships',$relationship)->all()[0];
-				$relationship = $this->Auth->create('relationships',[
+				$this->createRelationship([
 					'relationship_1' => 'clients',
 					'link_to_1' => $client['id'],
 					'relationship_2' => 'notes',
@@ -821,7 +808,7 @@ class containersAPI extends CRUDAPI {
 							];
 							$comment = $this->Auth->create('comments', $comment);
 							$comment = $this->Auth->read('comments', $comment)->all()[0];
-							$relationship = $this->Auth->create('relationships',[
+							$this->createRelationship([
 								'relationship_1' => 'containers',
 								'link_to_1' => $container['id'],
 								'relationship_2' => 'comments',
@@ -924,7 +911,7 @@ class containersAPI extends CRUDAPI {
 								];
 								$comment = $this->Auth->create('comments', $comment);
 								$comment = $this->Auth->read('comments', $comment)->all()[0];
-								$relationship = $this->Auth->create('relationships',[
+								$this->createRelationship([
 									'relationship_1' => 'containers',
 									'link_to_1' => $container['id'],
 									'relationship_2' => 'comments',
