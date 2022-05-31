@@ -1,7 +1,7 @@
 {
     "repository": {
         "name": "appmaker-containers",
-        "branch": "dev",
+        "branch": "pre-release",
         "manifest": "\/dist\/data\/manifest.json",
         "host": {
             "git": "https:\/\/github.com\/LouisOuellet\/",
@@ -13,6 +13,6 @@
     ],
     "name": "containers",
     "status": false,
-    "build": 63,
-    "version": "22.05-dev"
+    "build": 64,
+    "version": "22.05-pre-release"
 }
